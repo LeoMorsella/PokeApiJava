@@ -27,12 +27,12 @@ public class Application {
         pokeAPIService.obtenerPokemon(s);
 
 
-        System.out.println("Ingrese el nombre de la habilidad: ");
-        BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(System.in));
+       // System.out.println("Ingrese el nombre de la habilidad: ");
+        //BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(System.in));
 
-        String a = bufferedReader.readLine();
+       // String a = bufferedReader.readLine();
 
-        pokeAPIService.pokemonCon(a);
+       // pokeAPIService.pokemonCon(a);
 
 
 

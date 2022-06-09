@@ -6,7 +6,7 @@ public class Pokemon {
     private int id;
     private String name;
     private String image;
-    private ArrayList<Ability> abilities;
+    private ArrayList<Abilities> abilities;
 
 
 
@@ -34,20 +34,23 @@ public class Pokemon {
         this.name = name;
     }
 
-    public ArrayList<Ability> getAbilities() {
+    public ArrayList<Abilities> getAbilities() {
 
         return abilities;
     }
 
 
 
-    public String getHabilidad() {
-        return abilities.get(1).getName();
+    public ArrayList<String> getHabilidades() {
+        ArrayList<String> habilidades = new ArrayList<>();
+        for(Abilities ability: abilities) {
+            habilidades.add(ability.getAbility().getName());
+        }
+        return habilidades;
     }
 
 
-
-    public void setAbilities(ArrayList<Ability> abilities) {
+    public void setAbilities(ArrayList<Abilities> abilities) {
         this.abilities = abilities;
     }
 }

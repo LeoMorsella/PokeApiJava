@@ -31,18 +31,15 @@ public class PokeAPIService {
                Pokemon newPokemon = objectMapper.readValue(responseBody, Pokemon.class);
                     System.out.println("Nombre: " + newPokemon.getName());
                     System.out.println("Imagen: "+ "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+newPokemon.getId()+".png");
+                    System.out.println("Habilidades: "+newPokemon.getHabilidades());
 
-
-
-
-               System.out.println("Habilidad: " + newPokemon.getAbilities());
 
           } else {
                System.out.println("Error response = " + responseBody);
                throw new Exception("Error en la llamada a /api/user");
           }
      }
-
+/*
      public void pokemonCon(String habilidad) throws Exception {
 
           WebClient clientUsers = WebClient.create("https://pokeapi.co/api/v2/ability/"+habilidad);
@@ -59,7 +56,7 @@ public class PokeAPIService {
           String responseBody = response.readEntity(String.class);
           if (status == 200) {
                 //System.out.println("response = " + responseBody);
-               Ability newAbility = objectMapper.readValue(responseBody, Ability.class);
+               HabilidadesPokemon newAbility = objectMapper.readValue(responseBody, HabilidadesPokemon.class);
 
 
                System.out.println("Nombre: " + newAbility.getName());
@@ -73,6 +70,6 @@ public class PokeAPIService {
                System.out.println("Error response = " + responseBody);
                throw new Exception("Error en la llamada a /api/user");
           }
-     }
+     }*/
      }
 

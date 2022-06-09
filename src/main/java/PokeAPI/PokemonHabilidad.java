@@ -1,13 +1,7 @@
 package PokeAPI;
 
-import java.util.ArrayList;
-
-public class Ability {
-
+public class PokemonHabilidad {
     String name;
-
-
-
 
     public String getName() {
         return name;
@@ -16,8 +10,4 @@ public class Ability {
     public void setName(String name) {
         this.name = name;
     }
-
-
-
-
 }
