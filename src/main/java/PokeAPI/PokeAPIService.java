@@ -1,11 +1,13 @@
 package PokeAPI;
 
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.cxf.jaxrs.client.WebClient;
 
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 
 
 public class PokeAPIService {
@@ -25,16 +27,15 @@ public class PokeAPIService {
           System.out.println("Status: " + status);
           String responseBody = response.readEntity(String.class);
           if (status == 200) {
-              // System.out.println("response = " + responseBody);
+               //System.out.println("response = " + responseBody);
                Pokemon newPokemon = objectMapper.readValue(responseBody, Pokemon.class);
-
-
                     System.out.println("Nombre: " + newPokemon.getName());
-                    System.out.println("Imagen: "+ newPokemon.getId() +".jpg");
-
-                    System.out.println("Habilidad: " + newPokemon.getAbilities());
+                    System.out.println("Imagen: "+ "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+newPokemon.getId()+".png");
 
 
+
+
+               System.out.println("Habilidad: " + newPokemon.getAbilities());
 
           } else {
                System.out.println("Error response = " + responseBody);
@@ -57,12 +58,13 @@ public class PokeAPIService {
           System.out.println("Status: " + status);
           String responseBody = response.readEntity(String.class);
           if (status == 200) {
-               // System.out.println("response = " + responseBody);
+                //System.out.println("response = " + responseBody);
                Ability newAbility = objectMapper.readValue(responseBody, Ability.class);
 
 
                System.out.println("Nombre: " + newAbility.getName());
-               System.out.println("Pokemons: "+ newAbility.getPokemon());
+               System.out.println("Pokemons " + newAbility.getPokemon());
+
 
 
 

@@ -9,6 +9,7 @@ public class Pokemon {
     private ArrayList<Ability> abilities;
 
 
+
     public int getId() {
         return id;
     }
@@ -34,8 +35,17 @@ public class Pokemon {
     }
 
     public ArrayList<Ability> getAbilities() {
+
         return abilities;
     }
+
+
+
+    public String getHabilidad() {
+        return abilities.get(1).getName();
+    }
+
+
 
     public void setAbilities(ArrayList<Ability> abilities) {
         this.abilities = abilities;
