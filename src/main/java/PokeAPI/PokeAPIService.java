@@ -25,11 +25,46 @@ public class PokeAPIService {
           System.out.println("Status: " + status);
           String responseBody = response.readEntity(String.class);
           if (status == 200) {
-               System.out.println("response = " + responseBody);
-               PokemonResponse newPokemon = objectMapper.readValue(responseBody, PokemonResponse.class);
+              // System.out.println("response = " + responseBody);
+               Pokemon newPokemon = objectMapper.readValue(responseBody, Pokemon.class);
 
 
-                    System.out.println("Nombre: " + newPokemon.getResultado().getName());
+                    System.out.println("Nombre: " + newPokemon.getName());
+                    System.out.println("Imagen: "+ newPokemon.getId() +".jpg");
+
+                    System.out.println("Habilidad: " + newPokemon.getAbilities());
+
+
+
+          } else {
+               System.out.println("Error response = " + responseBody);
+               throw new Exception("Error en la llamada a /api/user");
+          }
+     }
+
+     public void pokemonCon(String habilidad) throws Exception {
+
+          WebClient clientUsers = WebClient.create("https://pokeapi.co/api/v2/ability/"+habilidad);
+
+          ObjectMapper objectMapper = new ObjectMapper();
+          objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+          Response response = clientUsers
+                  .header("Content-Type", "application/json")
+                  .get();
+
+          int status = response.getStatus();
+          System.out.println("Status: " + status);
+          String responseBody = response.readEntity(String.class);
+          if (status == 200) {
+               // System.out.println("response = " + responseBody);
+               Ability newAbility = objectMapper.readValue(responseBody, Ability.class);
+
+
+               System.out.println("Nombre: " + newAbility.getName());
+               System.out.println("Pokemons: "+ newAbility.getPokemon());
+
+
 
 
           } else {

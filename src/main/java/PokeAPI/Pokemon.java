@@ -1,10 +1,21 @@
 package PokeAPI;
 
+import java.util.ArrayList;
+
 public class Pokemon {
+    private int id;
     private String name;
     private String image;
-    // private ArrayList<Abilities> abilities;
+    private ArrayList<Ability> abilities;
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -22,4 +33,11 @@ public class Pokemon {
         this.name = name;
     }
 
+    public ArrayList<Ability> getAbilities() {
+        return abilities;
+    }
+
+    public void setAbilities(ArrayList<Ability> abilities) {
+        this.abilities = abilities;
+    }
 }
