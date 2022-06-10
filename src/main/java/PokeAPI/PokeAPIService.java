@@ -1,6 +1,7 @@
 package PokeAPI;
 
 
+import PokeAPI.AbilitiesService.Ability;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -39,7 +40,7 @@ public class PokeAPIService {
                throw new Exception("Error en la llamada a /api/user");
           }
      }
-/*
+
      public void pokemonCon(String habilidad) throws Exception {
 
           WebClient clientUsers = WebClient.create("https://pokeapi.co/api/v2/ability/"+habilidad);
@@ -56,11 +57,11 @@ public class PokeAPIService {
           String responseBody = response.readEntity(String.class);
           if (status == 200) {
                 //System.out.println("response = " + responseBody);
-               HabilidadesPokemon newAbility = objectMapper.readValue(responseBody, HabilidadesPokemon.class);
+               Ability newAbility = objectMapper.readValue(responseBody, Ability.class);
 
 
                System.out.println("Nombre: " + newAbility.getName());
-               System.out.println("Pokemons " + newAbility.getPokemon());
+               System.out.println("Pokemons: " + newAbility.getPokemon());
 
 
 
@@ -70,6 +71,6 @@ public class PokeAPIService {
                System.out.println("Error response = " + responseBody);
                throw new Exception("Error en la llamada a /api/user");
           }
-     }*/
+     }
      }
 
